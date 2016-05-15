@@ -79,12 +79,15 @@ header {
 
 #chatbox .leftSide {
 	float:left;
-	clear:both;	
+	clear:both;
+	padding-bottom: 25px;
 }
 
 #chatbox .rightSide {
 	float:right;
 	clear:both;
+	padding-bottom: 25px;
+	text-align:right;
 }
 
 #chatbox .leftSide > div {
@@ -101,14 +104,14 @@ header {
    	padding-left:15px;
 }
 
-#chatbox .leftSide > div > div > div:nth-child(1) {
+#chatbox .leftSide > div > div > div:nth-child(1), #chatbox .rightSide > div > div > div:nth-child(1) {
 	font-weight:500;
 	font-size:16px;
 	color:#2a00ff;
 	margin-bottom:10px;
 }
 
-#chatbox .leftSide > div > div > div:nth-child(2) {
+#chatbox .leftSide > div > div > div:nth-child(2), #chatbox .rightSide > div > div > div:nth-child(2) {
 	padding:10px 15px;
 	border-radius:8px;
 	background:#fff;
