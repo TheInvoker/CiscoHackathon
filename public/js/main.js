@@ -6,7 +6,7 @@ var userObj = {
 	},
 	"jasoncdu.92@gmail.com" : {
 		'icon_url' : 'imgs/avatar-bot.png',
-		'DisplayName' : 'Help Bot',
+		'DisplayName' : 'JasonD',
 		'class' : 'leftSide'
 	}
 };
@@ -24,9 +24,12 @@ $(document).ready(function() {
 			if (items[i].text.indexOf("Bot: ") != -1) {
 				items[i].personEmail = "jasoncdu.92@gmail.com";
 				items[i].text = items[i].text.substr(5);
+				var displayName = "Help Bot";
+			} else {
+				var displayName = userObj[items[i].personEmail].DisplayName;
 			}
 			var container = $("<div class='commentBox " + userObj[items[i].personEmail].class + "'/>");
-			container.append("<div><img src='" + userObj[items[i].personEmail].icon_url + "'/>" + "<div><div>" + userObj[items[i].personEmail].DisplayName + "</div>" + "<div>" + items[i].text + "</div></div></div>");
+			container.append("<div><img src='" + userObj[items[i].personEmail].icon_url + "'/>" + "<div><div>" + displayName + "</div>" + "<div>" + items[i].text + "</div></div></div>");
 			box.append(container);
 		}
 		box.append(data.afterhtml);
