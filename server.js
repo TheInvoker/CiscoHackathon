@@ -237,8 +237,11 @@ io.on('connection', function(socket){
 	});
 	
 	socket.on('setChatMessages', function(data) {
+		console.log("Got message intent");
 		getRoom("Jason", "direct", function(item) {
+			console.log("Got room");
 			writeMessage(item, data.message, function(writedata) {
+				console.log("wrote message");
 				socket.emit('setChatMessagesSuccess', {
 					'status' : 'ok',
 					'bot' : data.bot,
@@ -296,7 +299,7 @@ io.on('connection', function(socket){
 				});
 			} else {
 				socket.emit('checkFridgeLogDataSuccess', {
-					'msg' : 'Bot: Sorry, I couldn\'t help, I\'ll connect you to a help person... Click <a target="_blank" href="/logs/fridge.log">here</a> for the log file for your IoT fridge.',
+					'msg' : 'Bot: Sorry, I couldn\'t help, I\'ll connect you to a help person... @jasoncdu@outlook.com Click <a target="_blank" href="/logs/fridge.log">here</a> for the log file for your IoT fridge.',
 					'afterhtml' : ''
 				});
 			}
@@ -310,9 +313,12 @@ io.on('connection', function(socket){
 				throw err;
 			}
 			var userFridgeLog = logdata.toString();
-			sendLogToZues("fridge_log", [JSON.parse(userFridgeLog)], function(data) {
+			
+			sendLogToZues("fridge_log", [{
+				"solution" : "fix batteries",
+				"data" : JSON.parse(userFridgeLog)
+			}], function(data) {
 				socket.emit('actionWorkedSuccess', {});
-				
 			});
 		});
 	});
