@@ -19,7 +19,7 @@ $(document).ready(function() {
 		for(var i=items.length-1; i>=0; i-=1) {
 			
 			var container = $("<div class='commentBox'/>");
-			container.append("<div>" + userObj[items[i].personEmail].DisplayName + "</div>");
+			container.append("<div><img src='" + userObj[items[i].personEmail].icon_url + "'/>" + userObj[items[i].personEmail].DisplayName + "</div>");
 			container.append("<div>" + items[i].text + "</div>");
 			box.append(container);
 		}

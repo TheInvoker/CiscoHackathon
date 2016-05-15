@@ -73,11 +73,16 @@ function getRoom(titleFilter, typeFilter, cb) {
 			body += chunk;
 		});
 		res.on('end', function() {
-			var data = JSON.parse(body).items;
-			for(var i=0; i<data.length; i+=1) {
-				var item = data[i];
-				if (item.title==titleFilter && item.type==typeFilter) {
-					cb(item);
+			var data = JSON.parse(body);
+			if (data.message) {
+				console.log(data.message);
+			} else {
+				var data = data.items;
+				for(var i=0; i<data.length; i+=1) {
+					var item = data[i];
+					if (item.title==titleFilter && item.type==typeFilter) {
+						cb(item);
+					}
 				}
 			}
 		});
