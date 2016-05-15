@@ -24,7 +24,7 @@ function writeJSON(file, json, cb) {
 
 function readLogFromZues(log_name, cb) {
 	var options = { method: 'GET',
-		url: 'http://api.site1.ciscozeus.io/logs/' + ZUES_TOKEN + '/',
+		url: 'http://api.site1.ciscozeus.io/logs/' + ZUES_TOKEN + '?offset=0&limit=100',
 		qs: { 
 			log_name: log_name
 		},
@@ -147,7 +147,7 @@ function readMessages(room, cb) {
 
 
 /*
-readLogFromZues("TEST123", function(data) {
+readLogFromZues("fridge_log", function(data) {
 	console.log(data);
 });
 sendLogToZues("SSSSSSS", [{"test":"value1"}], function(data) {
@@ -193,6 +193,33 @@ io.on('connection', function(socket){
 				socket.emit('setChatMessagesSuccess', {
 					'status' : 'ok'
 				});
+			});
+		});
+	});
+	
+	socket.on('checkFridgeLogData', function(data) {
+		fs.readFile('logs/fridge.log', function read(err, logdata) {
+			if (err) {
+				throw err;
+			}
+			var userFridgeLog = logdata.toString();
+			
+			readLogFromZues("fridge_log", function(fridgedata) {
+				if (data.v == 1) {
+					socket.emit('checkFridgeLogDataSuccess', 'Hello, what can I help you with?');
+				} else if (data.v == 2) {
+					socket.emit('checkFridgeLogDataSuccess', 'Try restart again');
+				} else if (data.v == 3) {
+					socket.emit('checkFridgeLogDataSuccess', 'Try restart again');
+				} else if (data.v == 4) {
+					socket.emit('checkFridgeLogDataSuccess', 'Try restart again');
+				} else if (data.v == 5) {
+					socket.emit('checkFridgeLogDataSuccess', 'Try restart again');
+				} else if (data.v == 6) {
+					socket.emit('checkFridgeLogDataSuccess', 'Try restart again');
+				} else {
+					socket.emit('checkFridgeLogDataSuccess', 'Try restart again');
+				}
 			});
 		});
 	});

@@ -31,7 +31,16 @@ $(document).ready(function() {
 		socket.emit('getChatMessages');
 	});
 
-
+	socket.on('checkFridgeLogDataSuccess', function(data){
+		socket.emit('setChatMessages', {
+			'message' : data
+		});
+	});
+	
+	socket.emit('checkFridgeLogData', {
+		'v' : 1
+	});
+	
 	socket.emit('getChatMessages');
 	$("#refresh").click(function() {
 		socket.emit('getChatMessages');
