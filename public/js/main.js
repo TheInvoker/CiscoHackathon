@@ -54,6 +54,12 @@ $(document).ready(function() {
 					'v' : v
 				});
 				v += 1;
+				
+				if (v == 5) {
+					setInterval(function() {
+						socket.emit('getChatMessages', {});
+					}, 5000);
+				}
 			}
 		}
 	});
@@ -87,5 +93,6 @@ $(document).ready(function() {
 	});
 	$("#chathere").on('click', '.botAction_error', function() {
 		socket.emit('actionNotWorked');
+		$(this).closest(".botAction").remove();
 	});
 });

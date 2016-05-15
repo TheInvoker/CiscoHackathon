@@ -165,24 +165,25 @@ fs.readFile('public/logs/fridge.log', function read(err, logdata) {
 	if (err) {
 		throw err;
 	}
-	/*
+	
 	logdata = logdata.toString();
 	var sentences = logdata.split(".");
-	
+	/*
 	var u = {};
 	for(var i=0; i<sentences.length; i+=1) {
+		
 		var t = sentences[i].split(" ");
 		for(var j=0; j<t.length; j+=1) {
 			t[j] = t[j].trim();
 		}
 		if (t.length > 1) {
-			u[t[0] + " " + t[1]] = t.join(" ");
+			sendLogToZues("fridge_log", [{"word":t.join(" ")}], function(data) {
+				console.log(data);
+			});
 		}
 	}
-	sendLogToZues("fridge_log", [u], function(data) {
-		console.log(data);
-	});
 	*/
+	
 	
 	//sendLogToZues("fridge_log", [{"value1" : "this is a test sentence NEW NEW", "value2" : "this is a hackathon NEW NEW"}], function(data) {
 	//	console.log(data);
@@ -192,9 +193,9 @@ fs.readFile('public/logs/fridge.log', function read(err, logdata) {
 
 
 
-String.prototype.count=function(s1) { 
-    return (this.length - this.replace(new RegExp(s1,"g"), '').length) / s1.length;
-}
+//String.prototype.count=function(s1) { 
+//    return (this.length - this.replace(new RegExp(s1,"g"), '').length) / s1.length;
+//}
 
 
 
@@ -262,7 +263,7 @@ io.on('connection', function(socket){
 					var s = 0;
 					for(var prop in lst[i]) {
 						if (prop != "timestamp") {
-							s += userFridgeLog.count(lst[i][prop]);
+							//s += userFridgeLog.count(lst[i][prop]);
 						}
 					}
 					m = Math.max(m, s);
@@ -277,33 +278,23 @@ io.on('connection', function(socket){
 					});
 				} else if (data.v == 2) {
 					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Try restart again',
-						'afterhtml' : createBotAction("Blah")
+						'msg' : 'Bot: ok I see, can you try restarting it?',
+						'afterhtml' : createBotAction("Did it work?")
 					});
 				} else if (data.v == 3) {
 					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Try restart again',
-						'afterhtml' : createBotAction("Blah")
+						'msg' : 'Bot: Can you power it off for 30 seconds, and then try starting it?',
+						'afterhtml' : createBotAction("Did it work?")
 					});
 				} else if (data.v == 4) {
 					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Try restart again',
-						'afterhtml' : createBotAction("Blah")
-					});
-				} else if (data.v == 5) {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Try restart again',
-						'afterhtml' : createBotAction("Blah")
-					});
-				} else if (data.v == 6) {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Try restart again',
-						'afterhtml' : createBotAction("Blah")
+						'msg' : 'Bot: Can you try changing the batteries?',
+						'afterhtml' : createBotAction("Did it work?")
 					});
 				} else {
 					socket.emit('checkFridgeLogDataSuccess', {
 						'msg' : 'Bot: I\'ll connect you to a help person. Click <a target="_blank" href="/logs/fridge.log">here</a> for the log file.',
-						'afterhtml' : createBotAction("Blah")
+						'afterhtml' : ''
 					});
 				}
 			});
@@ -318,6 +309,7 @@ io.on('connection', function(socket){
 			var userFridgeLog = logdata.toString();
 			//sendLogToZues("fridge_log", [JSON.parse(userFridgeLog)], function(data) {
 				socket.emit('actionWorkedSuccess', {});
+				socket.disconnect(0);
 			//});
 		});
 	});
