@@ -187,3 +187,66 @@ button:focus {
     padding: 14px 0 8px;
 }
 
+/*home*/
+
+.row {
+	margin-bottom:60px;
+}
+
+.choice {
+	background:#f3f3f3;
+	padding:30px 0;
+}
+
+.card {
+	text-align:center;
+	width:28%;
+	margin-right:5%;
+	display:inline-block;
+	border-radius:8px;
+}
+
+.card.fridge {
+	background:#14b9bb;	
+}
+
+.card.light {
+	background:#bb14b5;	
+}
+
+.card.tv {
+	background:#ffc64c;	
+}
+
+.card.bike {
+	background:#3fd1f6;	
+}
+
+.card.washer {
+	background:#56d268;	
+}
+
+.card.lock {
+	background:#8b78ff;	
+}
+
+.card.thermostat {
+	background:#ff9e78;	
+}
+
+.card .icon-part {
+	padding:15px;
+	color:#fff;
+}
+
+.card .support {
+	background:#c9c9c9;
+	padding:15px;
+	color:#7d7d7d;
+	font-size:20px;
+	font-weight:500;
+}
+
+.fridge a, .logo a {
+	text-decoration: none;
+}
