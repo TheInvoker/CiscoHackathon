@@ -9,6 +9,8 @@ var userObj = {
 	}
 };
 
+
+
 $(document).ready(function() {
 	
 	var socket = io();
@@ -26,13 +28,14 @@ $(document).ready(function() {
 	});
 	
 	socket.on('setChatMessagesSuccess', function(data){
-		
-	});
-	
-	socket.emit('getChatMessages');
-	setInterval(function() {
 		socket.emit('getChatMessages');
-	}, 2000);
+	});
+
+
+	socket.emit('getChatMessages');
+	$("#refresh").click(function() {
+		socket.emit('getChatMessages');
+	});
 	
 	
 	$("#submit").click(function() {
