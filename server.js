@@ -7,7 +7,7 @@ var request = require('request');
 var socket = require('socket.io');
 
 
-var ZUES_TOKEN = "8fea82fd";
+var ZUES_TOKEN = "6d23d608";
 var SPARK_PERSONAL_ACCESS_TOKEN = 'YjM2ZmYwY2QtYzBmZS00ZGUxLTlkMWItODc3MzliODI3NmE1OGNjYjA1OGQtYTBj';
 
 function writeCiscoData(str, cb) {
@@ -24,7 +24,7 @@ function writeJSON(file, json, cb) {
 
 function readLogFromZues(log_name, cb) {
 	var options = { method: 'GET',
-		url: 'http://api.site1.ciscozeus.io/logs/' + ZUES_TOKEN + '?offset=0&limit=100',
+		url: 'http://api.site1.ciscozeus.io/logs/' + ZUES_TOKEN + '?offset=0&limit=30',
 		qs: { 
 			log_name: log_name
 		},
@@ -116,14 +116,14 @@ function writeMessage(room, msg, cb) {
 		"text" : msg
 	}));
 	post_req.on('error', function(e) {
-		console.error(e);
+		console.error("Error when writing message to spark", e);
 	});
 	post_req.end();
 }
 function readMessages(room, cb) {
 	var post_req = https.request({
 		host: 'api.ciscospark.com',
-		path: '/v1/messages?roomId=' + room.id + '&max=100',
+		path: '/v1/messages?roomId=' + room.id + '&max=30',
 		method: 'GET',
 		headers: {
 			'Authorization': 'Bearer ' + SPARK_PERSONAL_ACCESS_TOKEN,
@@ -146,6 +146,11 @@ function readMessages(room, cb) {
 }
 
 
+function createBotAction(msg) {
+	var ahtml = '<div class="botAction"><div>'+msg+'</div><div><div class="botAction_check"><img src="imgs/check.png"/></div><div class="botAction_error"><img src="imgs/error.png"/></div></div></div>';
+	return ahtml;
+}
+
 /*
 readLogFromZues("fridge_log", function(data) {
 	console.log(data);
@@ -155,6 +160,47 @@ sendLogToZues("SSSSSSS", [{"test":"value1"}], function(data) {
 });
 */
 
+
+fs.readFile('public/logs/fridge.log', function read(err, logdata) {
+	if (err) {
+		throw err;
+	}
+	
+	logdata = logdata.toString();
+	var sentences = logdata.split(".");
+	/*
+	var u = {};
+	for(var i=0; i<sentences.length; i+=1) {
+		
+		var t = sentences[i].split(" ");
+		for(var j=0; j<t.length; j+=1) {
+			t[j] = t[j].trim();
+		}
+		if (t.length > 1) {
+			sendLogToZues("fridge_log", [{"word":t.join(" ")}], function(data) {
+				console.log(data);
+			});
+		}
+	}
+	*/
+	
+	
+	//sendLogToZues("fridge_log", [{"value1" : "this is a test sentence NEW NEW", "value2" : "this is a hackathon NEW NEW"}], function(data) {
+	//	console.log(data);
+	//});
+});
+
+
+
+
+//String.prototype.count=function(s1) { 
+//    return (this.length - this.replace(new RegExp(s1,"g"), '').length) / s1.length;
+//}
+
+var fridgedata = {};
+readLogFromZues("fridge_log", function(data) {
+	fridgedata = JSON.parse(data);
+});
 
 app.use(express.static(__dirname + '/public'));
 
@@ -209,44 +255,52 @@ io.on('connection', function(socket){
 			}
 			var userFridgeLog = logdata.toString();
 			
-			readLogFromZues("fridge_log", function(fridgedata) {
-				if (data.v == 1) {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Hello, what can I help you with?',
-						'afterhtml' : '<div class="chatMessageInLine">Sending logs...</div>'
-					});
-				} else if (data.v == 2) {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Try restart again',
-						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
-					});
-				} else if (data.v == 3) {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Try restart again',
-						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
-					});
-				} else if (data.v == 4) {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Try restart again',
-						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
-					});
-				} else if (data.v == 5) {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Try restart again',
-						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
-					});
-				} else if (data.v == 6) {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Try restart again',
-						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
-					});
-				} else {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: I\'ll connect you to a help person. Click <a target="_blank" href="/logs/fridge.log">here</a> for the log file.',
-						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
-					});
+			var ahtml = '<div class="botAction"><div>blah</div><div><div class="botAction_check"><img src="imgs/check.png"/></div><div class="botAction_error"><img src="imgs/error.png"/></div></div></div>';
+			
+
+			
+
+			var lst = fridgedata.result;
+			var m = 0;
+			for(var i=0; i<lst.length; i+=1) {
+				var s = 0;
+				for(var prop in lst[i]) {
+					if (prop != "timestamp") {
+						//s += userFridgeLog.count(lst[i][prop]);
+					}
 				}
-			});
+				m = Math.max(m, s);
+			}
+			
+			
+			
+			if (data.v == 1) {
+				socket.emit('checkFridgeLogDataSuccess', {
+					'msg' : 'Bot: Hello, what can I help you with?',
+					'afterhtml' : '<div class="chatMessageInLine">Sending logs...</div>'
+				});
+			} else if (data.v == 2) {
+				socket.emit('checkFridgeLogDataSuccess', {
+					'msg' : 'Bot: ok I see, can you try restarting it?',
+					'afterhtml' : createBotAction("Did it work?")
+				});
+			} else if (data.v == 3) {
+				socket.emit('checkFridgeLogDataSuccess', {
+					'msg' : 'Bot: Can you power it off for 30 seconds, and then try starting it?',
+					'afterhtml' : createBotAction("Did it work?")
+				});
+			} else if (data.v == 4) {
+				socket.emit('checkFridgeLogDataSuccess', {
+					'msg' : 'Bot: Judging from the logs, it could be a problem the battery not connected properly. Can you try fixing the batteries in properly?',
+					'afterhtml' : createBotAction("Did it work?")
+				});
+			} else {
+				socket.emit('checkFridgeLogDataSuccess', {
+					'msg' : 'Bot: Sorry, I couldn\'t help, I\'ll connect you to a help person... Click <a target="_blank" href="/logs/fridge.log">here</a> for the log file for your IoT fridge.',
+					'afterhtml' : ''
+				});
+			}
+
 		});
 	});
 	
@@ -258,11 +312,16 @@ io.on('connection', function(socket){
 			var userFridgeLog = logdata.toString();
 			sendLogToZues("fridge_log", [JSON.parse(userFridgeLog)], function(data) {
 				socket.emit('actionWorkedSuccess', {});
+				
 			});
 		});
 	});
 	
 	socket.on('actionNotWorked', function(data) {
 		socket.emit('actionNotWorkedSuccess', {});
+	});
+	
+	socket.on('end', function(data) {
+		socket.disconnect(0);
 	});
 });
