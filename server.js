@@ -190,11 +190,10 @@ io.on('connection', function(socket){
 	socket.on('setChatMessages', function(data) {
 		getRoom("Jason", "direct", function(item) {
 			writeMessage(item, data.message, function(writedata) {
-				if (!data.bot) {
-					socket.emit('setChatMessagesSuccess', {
-						'status' : 'ok'
-					});
-				}
+				socket.emit('setChatMessagesSuccess', {
+					'status' : 'ok',
+					'bot' : data.bot
+				});
 			});
 		});
 	});

@@ -34,10 +34,14 @@ $(document).ready(function() {
 	});
 	socket.on('setChatMessagesSuccess', function(data) {
 		if (data.status == 'ok') {
-			socket.emit('checkFridgeLogData', {
-				'v' : v
-			});
-			v += 1;
+			if (data.bot) {
+				socket.emit('getChatMessages');
+			} else {
+				socket.emit('checkFridgeLogData', {
+					'v' : v
+				});
+				v += 1;
+			}
 		}
 	});
 
