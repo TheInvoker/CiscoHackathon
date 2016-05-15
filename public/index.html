@@ -5,11 +5,41 @@
 		<script src="js/jquery-2.2.3.min.js"></script>
 		<script src="js/socket.io-1.4.5.js"></script>
 		<script src="js/main.js"></script>
+
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<title>TropoShoot</title>
+
+		<title>Help Hub</title>
 	</head>
 	<body>
+
+		<header>
+			<div class="container">
+				<div class="logo">
+					<h1>Help Hub</h1>
+				</div>
+			</div>
+		</header>
 		
+		<div class="hero">
+			<div class="container">	
+				<div class="icon">
+					<img src="imgs/fridge.png">
+				</div>
+				<div class="details">
+					<div class="col-1">
+						<h1>Samsung Smart Fridge</h1>
+						<span>Version: 1.0.2</span>
+						<span>Issues opened: 1</span>
+						<span>Logs Retrieved: 3</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<button id="refresh"></button>
+
 		<div id="chatbox">
 		</div>
 		<input id="msgField" type="text"/><button id="submit">Send</button>
