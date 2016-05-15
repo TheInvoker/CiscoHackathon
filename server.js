@@ -24,7 +24,7 @@ function writeJSON(file, json, cb) {
 
 function readLogFromZues(log_name, cb) {
 	var options = { method: 'GET',
-		url: 'http://api.site1.ciscozeus.io/logs/' + ZUES_TOKEN + '?offset=0&limit=100',
+		url: 'http://api.site1.ciscozeus.io/logs/' + ZUES_TOKEN + '?offset=0&limit=30',
 		qs: { 
 			log_name: log_name
 		},
@@ -123,7 +123,7 @@ function writeMessage(room, msg, cb) {
 function readMessages(room, cb) {
 	var post_req = https.request({
 		host: 'api.ciscospark.com',
-		path: '/v1/messages?roomId=' + room.id + '&max=100',
+		path: '/v1/messages?roomId=' + room.id + '&max=30',
 		method: 'GET',
 		headers: {
 			'Authorization': 'Bearer ' + SPARK_PERSONAL_ACCESS_TOKEN,
