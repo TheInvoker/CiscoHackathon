@@ -1,9 +1,15 @@
+html, body {
+	padding:0;
+	margin:0;
+}
+
 * {
 	font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
 }
 
 header {
-	padding:30px 0;
+	padding:15px 0;
 	background:#fff;
 }
 
@@ -25,4 +31,41 @@ header {
 
 .hero div {
 	display:inline-block;
+}
+
+.hero span {
+	display:block;
+	padding-bottom:10px;
+	font-size:18px;
+}
+
+.hero .details h1 {
+	color:#17BABC;
+}
+
+.hero .col-1 {
+	padding:30px 0 30px 50px;
+	width:49%;
+	display:inline-block;
+}
+
+.hero .col-2 {
+	padding:30px 50px;
+	width:50%;
+	display:inline-block;
+}
+
+.hero .details h2 {
+	width:44px;
+	height:44px;
+	text-align:center;
+	padding-top:6px;
+	color:#fff;
+	border-radius:50%;
+	background:#ff0060;
+	display:inline-block;
+}
+
+#chatbox {
+	background:#eeeeee;
 }
