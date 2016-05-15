@@ -212,37 +212,37 @@ io.on('connection', function(socket){
 			readLogFromZues("fridge_log", function(fridgedata) {
 				if (data.v == 1) {
 					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Hello, what can I help you with?',
+						'msg' : 'Bot: Hello, what can I help you with?',
 						'afterhtml' : ''
 					});
 				} else if (data.v == 2) {
 					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Try restart again',
+						'msg' : 'Bot: Try restart again',
 						'afterhtml' : '<div><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
 					});
 				} else if (data.v == 3) {
 					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Try restart again',
+						'msg' : 'Bot: Try restart again',
 						'afterhtml' : '<div><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
 					});
 				} else if (data.v == 4) {
 					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Try restart again',
+						'msg' : 'Bot: Try restart again',
 						'afterhtml' : '<div><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
 					});
 				} else if (data.v == 5) {
 					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Try restart again',
+						'msg' : 'Bot: Try restart again',
 						'afterhtml' : '<div><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
 					});
 				} else if (data.v == 6) {
 					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Try restart again',
+						'msg' : 'Bot: Try restart again',
 						'afterhtml' : '<div><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
 					});
 				} else {
 					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Try restart again',
+						'msg' : 'Bot: Try restart again',
 						'afterhtml' : '<div><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
 					});
 				}
