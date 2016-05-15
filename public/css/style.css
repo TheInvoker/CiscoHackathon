@@ -16,10 +16,14 @@ header {
 .container {
 	width: 1200px;
 	margin:0 auto;
+	position:relative;
 }
 
 .logo h1 {
 	color:#2a00ff;
+	font-size:30px;
+	margin:0;
+	padding:20px 0;
 }
 
 .hero {
@@ -42,18 +46,19 @@ header {
 
 .hero .details h1 {
 	color:#17BABC;
+	font-size:30px;
 }
 
 .hero .col-1 {
-	padding:30px 0 30px 50px;
-	width:49%;
-	display:inline-block;
+	padding: 30px 0 30px 70px;
+	    display: inline-block;
+	    float: left;
 }
 
 .hero .col-2 {
-	padding:30px 50px;
-	width:50%;
-	display:inline-block;
+    padding: 30px 50px;
+    display: inline-block;
+    float: right;
 }
 
 .hero .details h2 {
@@ -114,10 +119,39 @@ header {
 #chatbox .leftSide > div > div > div:nth-child(2), #chatbox .rightSide > div > div > div:nth-child(2) {
 	padding:10px 15px;
 	border-radius:8px;
+	font-size:22px;
 	background:#fff;
 }
 
 .chatsubmit {
-	max-height:3vh;
+    height: 6.8vh;
+    background:#eeeeee;
 }
 
+input#msgField {
+	width:100%;
+	height:4vh;
+	margin-top:1vh;
+	font-size:18px;
+	padding:5px 10px;
+	border:2px solid #d9d9d9;
+}
+
+.chatsubmit button {
+	position:absolute;
+	right:0;
+	top:1vh;
+	height:4vh;
+	width:100px;
+	background:none;
+	border: 0px none transparent;
+	border-left:2px solid #d9d9d9;
+	cursor:pointer;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
