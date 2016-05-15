@@ -21,6 +21,10 @@ $(document).ready(function() {
 		var box = $("#chathere").empty();
 		var items = data.data.items;
 		for(var i=items.length-1; i>=0; i-=1) {
+			if (items[i].text.indexOf("Bot: ") != -1) {
+				items[i].personEmail = "jasoncdu.92@gmail.com";
+				items[i].text = items[i].text.substr(5);
+			}
 			var container = $("<div class='commentBox " + userObj[items[i].personEmail].class + "'/>");
 			container.append("<div><img src='" + userObj[items[i].personEmail].icon_url + "'/>" + "<div><div>" + userObj[items[i].personEmail].DisplayName + "</div>" + "<div>" + items[i].text + "</div></div></div>");
 			box.append(container);
