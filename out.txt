@@ -1,0 +1,8 @@
+{
+    "id": "Y2lzY29zcGFyazovL3VzL01FU1NBR0UvZDc1OGU1ZjAtMWE0Mi0xMWU2LTg1OWEtOWYxODkzNjRkMGUx",
+    "roomId": "Y2lzY29zcGFyazovL3VzL1JPT00vMmIxMTlmOTYtMGYyZC0zZDhlLTlhNjUtM2MxN2Q4NWVjMjYz",
+    "text": "XYZ",
+    "personId": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS8yMDQ3NjFjZi03YzY2LTRhYzktOTgyZi0wN2IxMTgzYWIxNTY",
+    "personEmail": "Ryan.dsouza@Hotmail.ca",
+    "created": "2016-05-15T02:15:06.447Z"
+}
