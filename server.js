@@ -251,8 +251,18 @@ io.on('connection', function(socket){
 	});
 	
 	socket.on('actionWorked', function(data) {
+		fs.readFile('logs/fridge.log', function read(err, logdata) {
+			if (err) {
+				throw err;
+			}
+			var userFridgeLog = logdata.toString();
+			sendLogToZues("fridge_log", [JSON.parse(userFridgeLog)], function(data) {
+				socket.emit('actionWorkedSuccess', {});
+			});
+		});
 	});
 	
 	socket.on('actionNotWorked', function(data) {
+		socket.emit('actionNotWorkedSuccess', {});
 	});
 });
