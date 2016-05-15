@@ -55,7 +55,7 @@ $(document).ready(function() {
 				});
 				v += 1;
 				
-				if (v == 5) {
+				if (v == 6) {
 					setInterval(function() {
 						socket.emit('getChatMessages', {});
 					}, 5000);

@@ -116,7 +116,7 @@ function writeMessage(room, msg, cb) {
 		"text" : msg
 	}));
 	post_req.on('error', function(e) {
-		console.error(e);
+		console.error("Error when writing message to spark", e);
 	});
 	post_req.end();
 }
@@ -197,7 +197,10 @@ fs.readFile('public/logs/fridge.log', function read(err, logdata) {
 //    return (this.length - this.replace(new RegExp(s1,"g"), '').length) / s1.length;
 //}
 
-
+var fridgedata = {};
+readLogFromZues("fridge_log", function(data) {
+	fridgedata = JSON.parse(data);
+});
 
 app.use(express.static(__dirname + '/public'));
 
@@ -254,50 +257,50 @@ io.on('connection', function(socket){
 			
 			var ahtml = '<div class="botAction"><div>blah</div><div><div class="botAction_check"><img src="imgs/check.png"/></div><div class="botAction_error"><img src="imgs/error.png"/></div></div></div>';
 			
-			readLogFromZues("fridge_log", function(fridgedata) {
-				
-				var obj = JSON.parse(fridgedata);
-				var lst = obj.result;
-				var m = 0;
-				for(var i=0; i<lst.length; i+=1) {
-					var s = 0;
-					for(var prop in lst[i]) {
-						if (prop != "timestamp") {
-							//s += userFridgeLog.count(lst[i][prop]);
-						}
+
+			
+
+			var lst = fridgedata.result;
+			var m = 0;
+			for(var i=0; i<lst.length; i+=1) {
+				var s = 0;
+				for(var prop in lst[i]) {
+					if (prop != "timestamp") {
+						//s += userFridgeLog.count(lst[i][prop]);
 					}
-					m = Math.max(m, s);
 				}
-				
-				
-				
-				if (data.v == 1) {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Hello, what can I help you with?',
-						'afterhtml' : '<div class="chatMessageInLine">Sending logs...</div>'
-					});
-				} else if (data.v == 2) {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: ok I see, can you try restarting it?',
-						'afterhtml' : createBotAction("Did it work?")
-					});
-				} else if (data.v == 3) {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Can you power it off for 30 seconds, and then try starting it?',
-						'afterhtml' : createBotAction("Did it work?")
-					});
-				} else if (data.v == 4) {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Can you try changing the batteries?',
-						'afterhtml' : createBotAction("Did it work?")
-					});
-				} else {
-					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Sorry, I couldn\'t help, I\'ll connect you to a help person... Click <a target="_blank" href="/logs/fridge.log">here</a> for the log file for your IoT fridge.',
-						'afterhtml' : ''
-					});
-				}
-			});
+				m = Math.max(m, s);
+			}
+			
+			
+			
+			if (data.v == 1) {
+				socket.emit('checkFridgeLogDataSuccess', {
+					'msg' : 'Bot: Hello, what can I help you with?',
+					'afterhtml' : '<div class="chatMessageInLine">Sending logs...</div>'
+				});
+			} else if (data.v == 2) {
+				socket.emit('checkFridgeLogDataSuccess', {
+					'msg' : 'Bot: ok I see, can you try restarting it?',
+					'afterhtml' : createBotAction("Did it work?")
+				});
+			} else if (data.v == 3) {
+				socket.emit('checkFridgeLogDataSuccess', {
+					'msg' : 'Bot: Can you power it off for 30 seconds, and then try starting it?',
+					'afterhtml' : createBotAction("Did it work?")
+				});
+			} else if (data.v == 4) {
+				socket.emit('checkFridgeLogDataSuccess', {
+					'msg' : 'Bot: Judging from the logs, it could be a problem the battery not connected properly. Can you try fixing the batteries in properly?',
+					'afterhtml' : createBotAction("Did it work?")
+				});
+			} else {
+				socket.emit('checkFridgeLogDataSuccess', {
+					'msg' : 'Bot: Sorry, I couldn\'t help, I\'ll connect you to a help person... Click <a target="_blank" href="/logs/fridge.log">here</a> for the log file for your IoT fridge.',
+					'afterhtml' : ''
+				});
+			}
+
 		});
 	});
 	
