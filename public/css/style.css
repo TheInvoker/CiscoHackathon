@@ -16,7 +16,13 @@ header {
 	color:#2a00ff;
 }
 
-.details {
+.hero {
 	background: #f3f3f3;
+	width:100%;
+	display:flex;
+	align-items:center;
 }
 
+.hero div {
+	display:inline-block;
+}
