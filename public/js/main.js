@@ -22,7 +22,7 @@ $(document).ready(function() {
 		var items = data.items;
 		for(var i=items.length-1; i>=0; i-=1) {
 			var container = $("<div class='commentBox " + userObj[items[i].personEmail].class + "'/>");
-			container.append("<div><img src='" + userObj[items[i].personEmail].icon_url + "'/>" + "<div>" + userObj[items[i].personEmail].DisplayName + "</div>" + "<div>" + items[i].text + "</div>" + "</div>");
+			container.append("<div><img src='" + userObj[items[i].personEmail].icon_url + "'/>" + "<div><div>" + userObj[items[i].personEmail].DisplayName + "</div>" + "<div>" + items[i].text + "</div></div></div>");
 			box.append(container);
 		}
 	});
