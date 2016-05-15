@@ -161,11 +161,40 @@ sendLogToZues("SSSSSSS", [{"test":"value1"}], function(data) {
 */
 
 
+fs.readFile('public/logs/fridge.log', function read(err, logdata) {
+	if (err) {
+		throw err;
+	}
+	/*
+	logdata = logdata.toString();
+	var sentences = logdata.split(".");
+	
+	var u = {};
+	for(var i=0; i<sentences.length; i+=1) {
+		var t = sentences[i].split(" ");
+		for(var j=0; j<t.length; j+=1) {
+			t[j] = t[j].trim();
+		}
+		if (t.length > 1) {
+			u[t[0] + " " + t[1]] = t.join(" ");
+		}
+	}
+	sendLogToZues("fridge_log", [u], function(data) {
+		console.log(data);
+	});
+	*/
+	
+	//sendLogToZues("fridge_log", [{"value1" : "this is a test sentence NEW NEW", "value2" : "this is a hackathon NEW NEW"}], function(data) {
+	//	console.log(data);
+	//});
+});
 
 
 
 
-
+String.prototype.count=function(s1) { 
+    return (this.length - this.replace(new RegExp(s1,"g"), '').length) / s1.length;
+}
 
 
 
@@ -225,6 +254,22 @@ io.on('connection', function(socket){
 			var ahtml = '<div class="botAction"><div>blah</div><div><div class="botAction_check"><img src="imgs/check.png"/></div><div class="botAction_error"><img src="imgs/error.png"/></div></div></div>';
 			
 			readLogFromZues("fridge_log", function(fridgedata) {
+				
+				var obj = JSON.parse(fridgedata);
+				var lst = obj.result;
+				var m = 0;
+				for(var i=0; i<lst.length; i+=1) {
+					var s = 0;
+					for(var prop in lst[i]) {
+						if (prop != "timestamp") {
+							s += userFridgeLog.count(lst[i][prop]);
+						}
+					}
+					m = Math.max(m, s);
+				}
+				
+				
+				
 				if (data.v == 1) {
 					socket.emit('checkFridgeLogDataSuccess', {
 						'msg' : 'Bot: Hello, what can I help you with?',
