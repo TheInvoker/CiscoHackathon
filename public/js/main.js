@@ -1,11 +1,13 @@
 var userObj = {
 	"Ryan.dsouza@Hotmail.ca" : {
 		'icon_url' : '',
-		'DisplayName' : 'RyanD'
+		'DisplayName' : 'RyanD',
+		'class' : 'rightSide'
 	},
 	"jasoncdu.92@gmail.com" : {
 		'icon_url' : '',
-		'DisplayName' : 'Help Bot'
+		'DisplayName' : 'Help Bot',
+		'class' : 'leftSide'
 	}
 };
 
@@ -19,7 +21,7 @@ $(document).ready(function() {
 		var box = $("#chathere").empty();
 		var items = data.items;
 		for(var i=items.length-1; i>=0; i-=1) {
-			var container = $("<div class='commentBox'/>");
+			var container = $("<div class='commentBox " + userObj[items[i].personEmail].class + "'/>");
 			container.append("<div><img src='" + userObj[items[i].personEmail].icon_url + "'/>" + userObj[items[i].personEmail].DisplayName + "</div>");
 			container.append("<div>" + items[i].text + "</div>");
 			box.append(container);
