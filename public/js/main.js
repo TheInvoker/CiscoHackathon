@@ -16,7 +16,7 @@ $(document).ready(function() {
 	var socket = io();
 	
 	socket.on('getChatMessagesSuccess', function(data){
-		var box = $("#chatbox").empty();
+		var box = $("#chathere").empty();
 		var items = data.items;
 		for(var i=items.length-1; i>=0; i-=1) {
 			
