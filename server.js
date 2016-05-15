@@ -203,7 +203,7 @@ io.on('connection', function(socket){
 	});
 	
 	socket.on('checkFridgeLogData', function(data) {
-		fs.readFile('logs/fridge.log', function read(err, logdata) {
+		fs.readFile('public/logs/fridge.log', function read(err, logdata) {
 			if (err) {
 				throw err;
 			}
@@ -242,7 +242,7 @@ io.on('connection', function(socket){
 					});
 				} else {
 					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: Try restart again',
+						'msg' : 'Bot: I\'ll connect you to a help person. Click <a target="_blank" href="/logs/fridge.log">here</a> for the log file.',
 						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
 					});
 				}
@@ -251,7 +251,7 @@ io.on('connection', function(socket){
 	});
 	
 	socket.on('actionWorked', function(data) {
-		fs.readFile('logs/fridge.log', function read(err, logdata) {
+		fs.readFile('public/logs/fridge.log', function read(err, logdata) {
 			if (err) {
 				throw err;
 			}
