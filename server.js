@@ -193,6 +193,37 @@ fs.readFile('public/logs/fridge.log', function read(err, logdata) {
 
 
 
+
+
+function sendSMS() {
+	var post_req = https.request({
+		host: 'api.tropo.com',
+		path: '/1.0/sessions?action=create&token=69557842765a616b76666d736d5078506e56626252776450416c4f756555786c504d42434466487158455a62',
+		method: 'GET'
+	}, function(res) {
+		var body = '';
+		res.on('data', function (chunk) {
+			body += chunk;
+		});
+		res.on('end', function() {
+			//writeCiscoData(body, function() {});
+			//cb(body);
+			console.log(body);
+		});
+	});
+	post_req.on('error', function(e) {
+		console.error(e);
+	});
+	post_req.end();
+};
+
+
+
+
+
+
+
+
 //String.prototype.count=function(s1) { 
 //    return (this.length - this.replace(new RegExp(s1,"g"), '').length) / s1.length;
 //}
@@ -302,6 +333,7 @@ io.on('connection', function(socket){
 					'msg' : 'Bot: Sorry, I couldn\'t help, I\'ll connect you to a help person... @jasoncdu@outlook.com Click <a target="_blank" href="/logs/fridge.log">here</a> for the log file for your IoT fridge.',
 					'afterhtml' : ''
 				});
+				sendSMS();
 			}
 
 		});

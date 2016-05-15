@@ -1,26 +1,520 @@
 {
-	"id": "0001",
-	"type": "donut",
-	"name": "Cake",
-	"ppu": 0.55,
-	"batters":
-		{
-			"batter":
-				[
-					{ "id": "1001", "type": "Regular" },
-					{ "id": "1002", "type": "Chocolate" },
-					{ "id": "1003", "type": "Blueberry" },
-					{ "id": "1004", "type": "Devil's Food" }
-				]
-		},
-	"topping":
-		[
-			{ "id": "5001", "type": "None" },
-			{ "id": "5002", "type": "Glazed" },
-			{ "id": "5005", "type": "Sugar" },
-			{ "id": "5007", "type": "Powdered Sugar" },
-			{ "id": "5006", "type": "Chocolate with Sprinkles" },
-			{ "id": "5003", "type": "Chocolate" },
-			{ "id": "5004", "type": "Maple" }
-		]
+  "meta" : {
+    "view" : {
+      "id" : "appx-5p2u",
+      "name" : "NOLA Hardware and Building Materials",
+      "attribution" : "City of New Orleans – Office of Information Technology & Innovation, Enterprise Information Team",
+      "averageRating" : 0,
+      "category" : "Housing, Land Use, and Blight",
+      "createdAt" : 1391793326,
+      "description" : "City of New Orleans hardware stores and building material outlets.  Bureau of Revenue data.",
+      "displayType" : "table",
+      "downloadCount" : 239,
+      "indexUpdatedAt" : 1440795829,
+      "licenseId" : "CC0_10",
+      "newBackend" : false,
+      "numberOfComments" : 0,
+      "oid" : 13055152,
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1440794260,
+      "publicationGroup" : 1469124,
+      "publicationStage" : "published",
+      "rowsUpdatedAt" : 1440793978,
+      "rowsUpdatedBy" : "guap-8ddq",
+      "tableId" : 4142281,
+      "totalTimesRated" : 0,
+      "viewCount" : 206,
+      "viewLastModified" : 1440794260,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : 219663272,
+        "name" : "Trade_Name",
+        "dataTypeName" : "text",
+        "fieldName" : "trade_name",
+        "position" : 1,
+        "renderTypeName" : "text",
+        "tableColumnId" : 18001134,
+        "width" : 220,
+        "cachedContents" : {
+          "non_null" : 32,
+          "smallest" : "AMERICAN HERITAGE GROUP ",
+          "null" : 0,
+          "largest" : "V.I.P KITCHEN",
+          "top" : [ {
+            "count" : 20,
+            "item" : "Mary's French Quarter Hardware"
+          }, {
+            "count" : 19,
+            "item" : "THE GREEN PROJECT"
+          }, {
+            "count" : 18,
+            "item" : "CLEMENT HARDWARE"
+          }, {
+            "count" : 17,
+            "item" : "NEW ORLEANS BAMBOO"
+          }, {
+            "count" : 16,
+            "item" : "THE PLUMBING WAREHOUSE LCR"
+          }, {
+            "count" : 15,
+            "item" : "T.S.L. SHEETMETAL LLC"
+          }, {
+            "count" : 14,
+            "item" : "U S STONE OUTLET OF NEW ORLEANS"
+          }, {
+            "count" : 13,
+            "item" : "JOHNNY'S TRUE VALUE HARDWARE"
+          }, {
+            "count" : 12,
+            "item" : "ROCKERY ACE HARDWARE"
+          }, {
+            "count" : 11,
+            "item" : "V.I.P KITCHEN"
+          }, {
+            "count" : 10,
+            "item" : "HOME DEPOT  # 385(EARHART)"
+          }, {
+            "count" : 9,
+            "item" : "BLUE LINX CORPORATION"
+          }, {
+            "count" : 8,
+            "item" : "D. L. SPACE"
+          }, {
+            "count" : 7,
+            "item" : "DILLON BROTHERS READY MIX CONCRETE"
+          }, {
+            "count" : 6,
+            "item" : "LOWE'S OF E NEW ORLEANS #2690"
+          }, {
+            "count" : 5,
+            "item" : "NATIONAL POLYFAB CO"
+          }, {
+            "count" : 4,
+            "item" : "OCEANSAFE HOUSING c/o ROSEN & FEDERICO"
+          }, {
+            "count" : 3,
+            "item" : "AMERICAN HERITAGE GROUP "
+          }, {
+            "count" : 2,
+            "item" : "FASTENAL COMPANY (NEW ORLEANS)"
+          }, {
+            "count" : 1,
+            "item" : "CABINET BY DESIGN"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 219663273,
+        "name" : "Address",
+        "dataTypeName" : "text",
+        "fieldName" : "address",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 18001141,
+        "width" : 184,
+        "cachedContents" : {
+          "non_null" : 32,
+          "smallest" : "1100 S CLAIBORNE AVE",
+          "null" : 0,
+          "largest" : "9885 CHEF MENTEUR HWY ",
+          "top" : [ {
+            "count" : 20,
+            "item" : "732 N RAMPART ST"
+          }, {
+            "count" : 19,
+            "item" : "2831 MARAIS ST "
+          }, {
+            "count" : 18,
+            "item" : "6000 MAGAZINE ST "
+          }, {
+            "count" : 17,
+            "item" : "6065 MAGAZINE ST "
+          }, {
+            "count" : 16,
+            "item" : "1995 GENTILLY BLVD "
+          }, {
+            "count" : 15,
+            "item" : "4437 ST LOUIS ST "
+          }, {
+            "count" : 14,
+            "item" : "3134 ELYSIAN FIELDS AVE "
+          }, {
+            "count" : 13,
+            "item" : "2001 MIRABEAU AVE "
+          }, {
+            "count" : 12,
+            "item" : "7043 CANAL BLVD "
+          }, {
+            "count" : 11,
+            "item" : "141 W HARRISON AVE"
+          }, {
+            "count" : 10,
+            "item" : "1100 S CLAIBORNE AVE"
+          }, {
+            "count" : 9,
+            "item" : "7500 ALMONASTER AVE "
+          }, {
+            "count" : 8,
+            "item" : "6101 CHEF MENTEUR HWY "
+          }, {
+            "count" : 7,
+            "item" : "11100 ALMONASTER AVE "
+          }, {
+            "count" : 6,
+            "item" : "5770 READ RD "
+          }, {
+            "count" : 5,
+            "item" : "13120 CARRERE CT "
+          }, {
+            "count" : 4,
+            "item" : "720 JULIA ST"
+          }, {
+            "count" : 3,
+            "item" : "201 ST CHARLES AVE "
+          }, {
+            "count" : 2,
+            "item" : "524 S CLAIBORNE AVE"
+          }, {
+            "count" : 1,
+            "item" : "5201 TCHOUPITOULAS ST "
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 219663289,
+        "name" : "Description",
+        "dataTypeName" : "text",
+        "fieldName" : "description",
+        "position" : 3,
+        "renderTypeName" : "text",
+        "tableColumnId" : 18001135,
+        "width" : 232,
+        "cachedContents" : {
+          "non_null" : 32,
+          "smallest" : "1125 HARDWARE STORES",
+          "null" : 0,
+          "largest" : "1140 BUILDING MATERIAL DEALERS, OTHER",
+          "top" : [ {
+            "count" : 20,
+            "item" : "1125 HARDWARE STORES"
+          }, {
+            "count" : 19,
+            "item" : "1140 BUILDING MATERIAL DEALERS, OTHER"
+          } ]
+        },
+        "format" : { }
+      }, {
+        "id" : 219663304,
+        "name" : "Location 1",
+        "dataTypeName" : "location",
+        "fieldName" : "location_1",
+        "position" : 4,
+        "renderTypeName" : "location",
+        "tableColumnId" : 18001140,
+        "width" : 220,
+        "cachedContents" : {
+          "non_null" : 32,
+          "smallest" : {
+            "longitude" : "-90.08632",
+            "latitude" : "29.948955",
+            "human_address" : "{\"address\":\"1100 S CLAIBORNE AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70125\"}"
+          },
+          "null" : 0,
+          "largest" : {
+            "longitude" : "-89.970544",
+            "latitude" : "30.017983",
+            "human_address" : "{\"address\":\"9885 CHEF MENTEUR HWY\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70127\"}"
+          },
+          "top" : [ {
+            "count" : 20,
+            "item" : {
+              "longitude" : "-90.067742",
+              "latitude" : "29.961172",
+              "human_address" : "{\"address\":\"732 N RAMPART ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70116\"}"
+            }
+          }, {
+            "count" : 19,
+            "item" : {
+              "longitude" : "-90.047447",
+              "latitude" : "29.969357",
+              "human_address" : "{\"address\":\"2831 MARAIS ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70117\"}"
+            }
+          }, {
+            "count" : 18,
+            "item" : {
+              "longitude" : "-90.121525",
+              "latitude" : "29.922154",
+              "human_address" : "{\"address\":\"6000 MAGAZINE ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70118\"}"
+            }
+          }, {
+            "count" : 17,
+            "item" : {
+              "longitude" : "-90.123139",
+              "latitude" : "29.922694",
+              "human_address" : "{\"address\":\"6065 MAGAZINE ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70118\"}"
+            }
+          }, {
+            "count" : 16,
+            "item" : {
+              "longitude" : "-90.073582",
+              "latitude" : "29.989087",
+              "human_address" : "{\"address\":\"1995 GENTILLY BLVD\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70119\"}"
+            }
+          }, {
+            "count" : 15,
+            "item" : {
+              "longitude" : "-90.102514",
+              "latitude" : "29.980948",
+              "human_address" : "{\"address\":\"4437 ST LOUIS ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70119\"}"
+            }
+          }, {
+            "count" : 14,
+            "item" : {
+              "longitude" : "-90.058678",
+              "latitude" : "29.990204",
+              "human_address" : "{\"address\":\"3134 ELYSIAN FIELDS AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70122\"}"
+            }
+          }, {
+            "count" : 13,
+            "item" : {
+              "longitude" : "-90.064404",
+              "latitude" : "30.008002",
+              "human_address" : "{\"address\":\"2001 MIRABEAU AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70122\"}"
+            }
+          }, {
+            "count" : 12,
+            "item" : {
+              "longitude" : "-90.10619",
+              "latitude" : "30.018641",
+              "human_address" : "{\"address\":\"7043 CANAL BLVD\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70124\"}"
+            }
+          }, {
+            "count" : 11,
+            "item" : {
+              "longitude" : "-90.116898",
+              "latitude" : "30.005672",
+              "human_address" : "{\"address\":\"141 W HARRISON AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70124\"}"
+            }
+          }, {
+            "count" : 10,
+            "item" : {
+              "longitude" : "-90.08632",
+              "latitude" : "29.948955",
+              "human_address" : "{\"address\":\"1100 S CLAIBORNE AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70125\"}"
+            }
+          }, {
+            "count" : 9,
+            "item" : {
+              "longitude" : "-90.006597",
+              "latitude" : "30.005457",
+              "human_address" : "{\"address\":\"7500 ALMONASTER AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70126\"}"
+            }
+          }, {
+            "count" : 8,
+            "item" : {
+              "longitude" : "-90.017597",
+              "latitude" : "30.010368",
+              "human_address" : "{\"address\":\"6101 CHEF MENTEUR HWY\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70126\"}"
+            }
+          }, {
+            "count" : 7,
+            "item" : {
+              "longitude" : "-89.958979",
+              "latitude" : "30.010569",
+              "human_address" : "{\"address\":\"11100 ALMONASTER AVE\",\"city\":\"New Orleans\",\"state\":\"LA\",\"zip\":\"70127\"}"
+            }
+          }, {
+            "count" : 6,
+            "item" : {
+              "longitude" : "-89.974614",
+              "latitude" : "30.034828",
+              "human_address" : "{\"address\":\"5770 READ RD\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70127\"}"
+            }
+          }, {
+            "count" : 5,
+            "item" : {
+              "longitude" : "-89.929301",
+              "latitude" : "30.027018",
+              "human_address" : "{\"address\":\"13120 CARRERE CT\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70129\"}"
+            }
+          }, {
+            "count" : 4,
+            "item" : {
+              "longitude" : "-90.071922",
+              "latitude" : "29.945988",
+              "human_address" : "{\"address\":\"720 JULIA ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70130\"}"
+            }
+          }, {
+            "count" : 3,
+            "item" : {
+              "longitude" : "-90.069809",
+              "latitude" : "29.952221",
+              "human_address" : "{\"address\":\"201 ST CHARLES AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70170\"}"
+            }
+          }, {
+            "count" : 2,
+            "item" : {
+              "longitude" : "-90.081933",
+              "latitude" : "29.954109",
+              "human_address" : "{\"address\":\"524 S CLAIBORNE AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70112\"}"
+            }
+          }, {
+            "count" : 1,
+            "item" : {
+              "longitude" : "-90.111288",
+              "latitude" : "29.916536",
+              "human_address" : "{\"address\":\"5201 TCHOUPITOULAS ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70115\"}"
+            }
+          } ]
+        },
+        "format" : { },
+        "subColumnTypes" : [ "human_address", "latitude", "longitude", "machine_address", "needs_recoding" ]
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "license" : {
+        "name" : "Creative Commons 1.0 Universal (Public Domain Dedication)",
+        "logoUrl" : "images/licenses/ccZero.png",
+        "termsLink" : "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+      },
+      "metadata" : {
+        "custom_fields" : {
+          "Common Core" : {
+            "Contact Email" : "gis@nola.gov"
+          },
+          "Source Information" : {
+            "Source Department" : "City of New Orleans, Bureau of Revenue"
+          }
+        },
+        "renderTypeConfig" : {
+          "visible" : {
+            "table" : true
+          }
+        },
+        "rowLabel" : "Row",
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+        "rdfSubject" : "0"
+      },
+      "owner" : {
+        "id" : "guap-8ddq",
+        "displayName" : "City of New Orleans GIS Department",
+        "privilegesDisabled" : false,
+        "roleName" : "administrator",
+        "screenName" : "City of New Orleans GIS Department",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_sdp", "edit_site_theme", "moderate_comments", "manage_users", "chown_datasets", "edit_nominations", "approve_nominations", "feature_items", "federations", "manage_stories", "manage_approval", "change_configurations", "view_domain", "view_others_datasets", "edit_pages", "create_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "create_dashboards", "manage_provenance", "create_story", "edit_story_title_desc", "create_story_copy", "delete_story", "manage_story_collaborators", "manage_story_visibility", "manage_story_public_version", "edit_story", "view_unpublished_story", "view_story", "view_all_dataset_status_logs" ]
+      },
+      "query" : { },
+      "rights" : [ "read" ],
+      "tableAuthor" : {
+        "id" : "guap-8ddq",
+        "displayName" : "City of New Orleans GIS Department",
+        "privilegesDisabled" : false,
+        "roleName" : "administrator",
+        "screenName" : "City of New Orleans GIS Department",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_sdp", "edit_site_theme", "moderate_comments", "manage_users", "chown_datasets", "edit_nominations", "approve_nominations", "feature_items", "federations", "manage_stories", "manage_approval", "change_configurations", "view_domain", "view_others_datasets", "edit_pages", "create_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "create_dashboards", "manage_provenance", "create_story", "edit_story_title_desc", "create_story_copy", "delete_story", "manage_story_collaborators", "manage_story_visibility", "manage_story_public_version", "edit_story", "view_unpublished_story", "view_story", "view_all_dataset_status_logs" ]
+      },
+      "tags" : [ "new orleans", "hardware", "building" ],
+      "flags" : [ "default" ]
+    }
+  },
+  "data" : [ [ 31, "A23EDB9F-B22B-41E6-9E37-E8E5F8EF0F84", 31, 1440793928, "394413", 1440793928, "394413", null, "HOME DEPOT, USA INC #352(EAST)", "12300 I 10 E SERVICE RD ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"12300 I 10 E SERVICE RD\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70128\"}", null, null, null, true ] ]
+, [ 13, "0AA87A55-A7AC-42DC-984D-E0A4276B03D7", 13, 1440793928, "394413", 1440793943, "394413", null, "D. L. SPACE", "6101 CHEF MENTEUR HWY ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"6101 CHEF MENTEUR HWY\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70126\"}", "30.010368", "-90.017597", null, false ] ]
+, [ 9, "0B5AA2E6-15F2-422D-B2D6-AB6364D5963A", 9, 1440793928, "394413", 1440793943, "394413", null, "ROCKERY ACE HARDWARE", "7043 CANAL BLVD ", "1125 HARDWARE STORES", [ "{\"address\":\"7043 CANAL BLVD\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70124\"}", "30.018641", "-90.10619", null, false ] ]
+, [ 32, "117B8CAA-5E6C-4883-B481-9E6618CBD307", 32, 1440793928, "394413", 1440793943, "394413", null, "HARRY'S ACE HARDWARE", "4817 GENERAL MEYER AVE ", "1125 HARDWARE STORES", [ "{\"address\":\"4817 GENERAL MEYER AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70131\"}", "29.932574", "-90.004512", null, false ] ]
+, [ 14, "26277FB0-E477-4CF1-BF4B-D203AD0B20ED", 14, 1440793928, "394413", 1440793943, "394413", null, "DILLON BROTHERS READY MIX CONCRETE", "11100 ALMONASTER AVE ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"11100 ALMONASTER AVE\",\"city\":\"New Orleans\",\"state\":\"LA\",\"zip\":\"70127\"}", "30.010569", "-89.958979", null, false ] ]
+, [ 10, "2E7B1F22-D5E1-4F1E-BDE9-DC8267EBE655", 10, 1440793928, "394413", 1440793943, "394413", null, "V.I.P KITCHEN", "141 W HARRISON AVE", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"141 W HARRISON AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70124\"}", "30.005672", "-90.116898", null, false ] ]
+, [ 15, "31E220C1-15C4-4914-9290-00BD7D6F1D9F", 15, 1440793928, "394413", 1440793943, "394413", null, "LOWE'S OF E NEW ORLEANS #2690", "5770 READ RD ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"5770 READ RD\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70127\"}", "30.034828", "-89.974614", null, false ] ]
+, [ 8, "37209922-F0EF-4775-AA5A-F5FEEB08FCC8", 8, 1440793928, "394413", 1440793943, "394413", null, "JOHNNY'S TRUE VALUE HARDWARE", "2001 MIRABEAU AVE ", "1125 HARDWARE STORES", [ "{\"address\":\"2001 MIRABEAU AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70122\"}", "30.008002", "-90.064404", null, false ] ]
+, [ 6, "3F2A0AF3-BD57-4739-87CE-66E26300E19A", 6, 1440793928, "394413", 1440793943, "394413", null, "T.S.L. SHEETMETAL LLC", "4437 ST LOUIS ST ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"4437 ST LOUIS ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70119\"}", "29.980948", "-90.102514", null, false ] ]
+, [ 19, "4B35262A-2CA8-4F38-A6CD-60560345EE34", 19, 1440793928, "394413", 1440793943, "394413", null, "FASTENAL COMPANY (NEW ORLEANS)", "524 S CLAIBORNE AVE", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"524 S CLAIBORNE AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70112\"}", "29.954109", "-90.081933", null, false ] ]
+, [ 27, "54A14122-08E4-412E-9354-44503C6F1085", 27, 1440793928, "394413", 1440793943, "394413", null, "MIKE'S HARDWARE", "4233 ELYSIAN FIELDS AVE ", "1125 HARDWARE STORES", [ "{\"address\":\"4233 ELYSIAN FIELDS AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70122\"}", "30.001706", "-90.05926", null, false ] ]
+, [ 29, "574C919F-988C-4FFC-BC16-1E6C41603DB7", 29, 1440793928, "394413", 1440793943, "394413", null, "EDDIES HARDWARE INC", "4401 DOWNMAN RD ", "1125 HARDWARE STORES", [ "{\"address\":\"4401 DOWNMAN RD\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70126\"}", "30.014428", "-90.021273", null, false ] ]
+, [ 24, "5B2D08B9-276E-47B8-B4A9-C3E5B72204A3", 24, 1440793928, "394413", 1440793943, "394413", null, "LOWE'S OF CENTRAL NO 1846 TAX DEPT", "2501 ELYSIAN FIELDS AVE ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"2501 ELYSIAN FIELDS AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70117\"}", "29.982948", "-90.057833", null, false ] ]
+, [ 11, "5F33EC48-E8CA-4B4B-AA7F-CAE36E6DF2EA", 11, 1440793928, "394413", 1440793943, "394413", null, "HOME DEPOT  # 385(EARHART)", "1100 S CLAIBORNE AVE", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"1100 S CLAIBORNE AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70125\"}", "29.948955", "-90.08632", null, false ] ]
+, [ 30, "69D86A48-0146-443D-BD50-D36AC9FA0D02", 30, 1440793928, "394413", 1440793943, "394413", null, "TRUE VALUE HARDWARE", "9885 CHEF MENTEUR HWY ", "1125 HARDWARE STORES", [ "{\"address\":\"9885 CHEF MENTEUR HWY\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70127\"}", "30.017983", "-89.970544", null, false ] ]
+, [ 4, "6B2C0FD2-E87B-4E21-980D-09211DCB60AA", 4, 1440793928, "394413", 1440793943, "394413", null, "NEW ORLEANS BAMBOO", "6065 MAGAZINE ST ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"6065 MAGAZINE ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70118\"}", "29.922694", "-90.123139", null, false ] ]
+, [ 5, "6F2CA148-9F24-454E-8DA0-C55DF19BF7F3", 5, 1440793928, "394413", 1440793943, "394413", null, "THE PLUMBING WAREHOUSE LCR", "1995 GENTILLY BLVD ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"1995 GENTILLY BLVD\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70119\"}", "29.989087", "-90.073582", null, false ] ]
+, [ 23, "74D3F70D-2BCD-414B-94CA-B62F459B243A", 23, 1440793928, "394413", 1440793943, "394413", null, "FRERET HARDWARE STORE", "5109 FRERET ST ", "1125 HARDWARE STORES", [ "{\"address\":\"5109 FRERET ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70115\"}", "29.935015", "-90.109688", null, false ] ]
+, [ 21, "87D0A92E-A92A-4A51-876D-E299DE68CF3B", 21, 1440793928, "394413", 1440793943, "394413", null, "LIBERTY LUMBER YARD INC", "5383 TCHOUPITOULAS ST ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"5383 TCHOUPITOULAS ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70115\"}", "29.916464", "-90.115386", null, false ] ]
+, [ 18, "89F1D9E1-A290-4122-9D87-25274E3A2950", 18, 1440793928, "394413", 1440793943, "394413", null, "AMERICAN HERITAGE GROUP ", "201 ST CHARLES AVE ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"201 ST CHARLES AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70170\"}", "29.952221", "-90.069809", null, false ] ]
+, [ 12, "99F70350-D0EA-47D4-8056-5C911EB83B53", 12, 1440793928, "394413", 1440793943, "394413", null, "BLUE LINX CORPORATION", "7500 ALMONASTER AVE ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"7500 ALMONASTER AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70126\"}", "30.005457", "-90.006597", null, false ] ]
+, [ 7, "9FBD4AD5-C2A7-42EF-B91B-BA0A1016B8BD", 7, 1440793928, "394413", 1440793943, "394413", null, "U S STONE OUTLET OF NEW ORLEANS", "3134 ELYSIAN FIELDS AVE ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"3134 ELYSIAN FIELDS AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70122\"}", "29.990204", "-90.058678", null, false ] ]
+, [ 1, "B01D3C65-1A7D-497D-9398-6D7E246D82B9", 1, 1440793928, "394413", 1440793943, "394413", null, "Mary's French Quarter Hardware", "732 N RAMPART ST", "1125 HARDWARE STORES", [ "{\"address\":\"732 N RAMPART ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70116\"}", "29.961172", "-90.067742", null, false ] ]
+, [ 17, "B5B94470-F82E-4258-8A42-54DB213B8111", 17, 1440793928, "394413", 1440793943, "394413", null, "OCEANSAFE HOUSING c/o ROSEN & FEDERICO", "720 JULIA ST", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"720 JULIA ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70130\"}", "29.945988", "-90.071922", null, false ] ]
+, [ 20, "B6CC1772-ED9E-4C96-8D3D-50956223345A", 20, 1440793928, "394413", 1440793943, "394413", null, "CABINET BY DESIGN", "5201 TCHOUPITOULAS ST ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"5201 TCHOUPITOULAS ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70115\"}", "29.916536", "-90.111288", null, false ] ]
+, [ 25, "B97D7CBB-49B0-4BE4-B320-AAE659728457", 25, 1440793928, "394413", 1440793943, "394413", null, "UNITED HARDWARE", "735 ELYSIAN FIELDS AVE ", "1125 HARDWARE STORES", [ "{\"address\":\"735 ELYSIAN FIELDS AVE\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70117\"}", "29.965386", "-90.056439", null, false ] ]
+, [ 22, "BB9DB66B-1DE6-4CDE-9686-CFF0997D8EC6", 22, 1440793928, "394413", 1440793943, "394413", null, "HARRYS HARDWARE INC", "3535 MAGAZINE ST ", "1125 HARDWARE STORES", [ "{\"address\":\"3535 MAGAZINE ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70115\"}", "29.922197", "-90.091421", null, false ] ]
+, [ 16, "C6FFD9C2-0C8A-4446-A491-F7023CAF7D42", 16, 1440793928, "394413", 1440793943, "394413", null, "NATIONAL POLYFAB CO", "13120 CARRERE CT ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"13120 CARRERE CT\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70129\"}", "30.027018", "-89.929301", null, false ] ]
+, [ 26, "CAF9F561-1EE7-4BA4-B239-D033481C636B", 26, 1440793928, "394413", 1440793943, "394413", null, "MATTIX CABINET WORKS", "415 N SOLOMON ST", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"415 N SOLOMON ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70119\"}", "29.978478", "-90.099729", null, false ] ]
+, [ 28, "D933DC2C-DC4C-4914-80B3-C081D2B93F69", 28, 1440793928, "394413", 1440793943, "394413", null, "PRE-CAST CONCRETE STEP COMPANY INC", "7900 PALM ST ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"7900 PALM ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70125\"}", "29.963373", "-90.109936", null, false ] ]
+, [ 2, "D9ACB341-5DA6-4098-82C4-38EE909913AB", 2, 1440793928, "394413", 1440793943, "394413", null, "THE GREEN PROJECT", "2831 MARAIS ST ", "1140 BUILDING MATERIAL DEALERS, OTHER", [ "{\"address\":\"2831 MARAIS ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70117\"}", "29.969357", "-90.047447", null, false ] ]
+, [ 3, "DA22893C-7C2A-47BD-BDAF-DA9C695E2DE8", 3, 1440793928, "394413", 1440793943, "394413", null, "CLEMENT HARDWARE", "6000 MAGAZINE ST ", "1125 HARDWARE STORES", [ "{\"address\":\"6000 MAGAZINE ST\",\"city\":\"NEW ORLEANS\",\"state\":\"LA\",\"zip\":\"70118\"}", "29.922154", "-90.121525", null, false ] ]
+ ]
 }
