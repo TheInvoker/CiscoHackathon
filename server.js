@@ -6,8 +6,8 @@ var request = require('request');
 var ZUES_TOKEN = "8fea82fd";
 var SPARK_PERSONAL_ACCESS_TOKEN = 'YjM2ZmYwY2QtYzBmZS00ZGUxLTlkMWItODc3MzliODI3NmE1OGNjYjA1OGQtYTBj';
 
-function writeCiscoData(chunk, cb) {
-	writeJSON('out.txt', JSON.stringify(JSON.parse(chunk.toString()), null, 4), cb);
+function writeCiscoData(str, cb) {
+	writeJSON('out.txt', JSON.stringify(JSON.parse(str), null, 4), cb);
 }
 function writeJSON(file, json, cb) {
 	fs.writeFile(file, json, function(err) {
@@ -71,8 +71,12 @@ function getRoom(titleFilter, typeFilter, cb) {
 			'Authorization': 'Bearer ' + SPARK_PERSONAL_ACCESS_TOKEN
 		}
 	}, function(res) {
+		var body = '';
 		res.on('data', function (chunk) {
-			var data = JSON.parse(chunk.toString()).items;
+			body += chunk;
+		});
+		res.on('end', function() {
+			var data = JSON.parse(body).items;
 			for(var i=0; i<data.length; i+=1) {
 				var item = data[i];
 				if (item.title==titleFilter && item.type==typeFilter) {
@@ -86,7 +90,7 @@ function getRoom(titleFilter, typeFilter, cb) {
 	});
 	post_req.end();
 }
-function writeMessage(item, msg, cb) {
+function writeMessage(room, msg, cb) {
 	var post_req = https.request({
 		host: 'api.ciscospark.com',
 		path: '/v1/messages',
@@ -96,16 +100,43 @@ function writeMessage(item, msg, cb) {
 			'Content-type' : 'application/json; charset=utf-8'
 		}
 	}, function(res) {
+		var body = '';
 		res.on('data', function (chunk) {
-			//writeCiscoData(chunk, function() {});
-			var data = JSON.parse(chunk.toString());
-			cb(data);
+			body += chunk;
+		});
+		res.on('end', function() {
+			//writeCiscoData(body, function() {});
+			cb(body);
 		});
 	});
 	post_req.write(JSON.stringify({
-		"roomId" : item.id,
+		"roomId" : room.id,
 		"text" : msg
 	}));
+	post_req.on('error', function(e) {
+		console.error(e);
+	});
+	post_req.end();
+}
+function readMessages(room, cb) {
+	var post_req = https.request({
+		host: 'api.ciscospark.com',
+		path: '/v1/messages?roomId=' + room.id + '&max=30',
+		method: 'GET',
+		headers: {
+			'Authorization': 'Bearer ' + SPARK_PERSONAL_ACCESS_TOKEN,
+			'Content-type' : 'application/json; charset=utf-8'
+		}
+	}, function(res) {
+		var body = '';
+		res.on('data', function (chunk) {
+			body += chunk;
+		});
+		res.on('end', function() {
+			//writeCiscoData(body, function() {});
+			cb(body);
+		});
+	});
 	post_req.on('error', function(e) {
 		console.error(e);
 	});
@@ -114,11 +145,14 @@ function writeMessage(item, msg, cb) {
 
 
 
-/*
 getRoom("Jason", "direct", function(item) {
-	writeMessage(item, "XYZ", function(data) {
+	//writeMessage(item, "XYZ", function(data) {
+	//});
+	readMessages(item, function(data) {
+		console.log(data);
 	});
 });
+/*
 
 
 
