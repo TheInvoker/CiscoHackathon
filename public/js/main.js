@@ -57,8 +57,12 @@ $(document).ready(function() {
 			}
 		}
 	});
-
-
+	socket.on('actionWorkedSuccess', function(data) {
+		alert("Thank you for letting us know this was your fix!");
+	});
+	socket.on('actionNotWorkedSuccess', function(data) {
+		
+	});
 	
 
 	
@@ -75,5 +79,13 @@ $(document).ready(function() {
 			'message' : msg,
 			'bot' : false
 		});
+	});
+	
+	
+	$("#chathere").on('click', '.botAction_check', function() {
+		socket.emit('actionWorked');
+	});
+	$("#chathere").on('click', '.botAction_error', function() {
+		socket.emit('actionNotWorked');
 	});
 });

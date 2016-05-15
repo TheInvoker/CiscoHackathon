@@ -146,6 +146,11 @@ function readMessages(room, cb) {
 }
 
 
+function createBotAction(msg) {
+	var ahtml = '<div class="botAction"><div>'+msg+'</div><div><div class="botAction_check"><img src="imgs/check.png"/></div><div class="botAction_error"><img src="imgs/error.png"/></div></div></div>';
+	return ahtml;
+}
+
 /*
 readLogFromZues("fridge_log", function(data) {
 	console.log(data);
@@ -209,41 +214,43 @@ io.on('connection', function(socket){
 			}
 			var userFridgeLog = logdata.toString();
 			
+			var ahtml = '<div class="botAction"><div>blah</div><div><div class="botAction_check"><img src="imgs/check.png"/></div><div class="botAction_error"><img src="imgs/error.png"/></div></div></div>';
+			
 			readLogFromZues("fridge_log", function(fridgedata) {
 				if (data.v == 1) {
 					socket.emit('checkFridgeLogDataSuccess', {
 						'msg' : 'Bot: Hello, what can I help you with?',
-						'afterhtml' : '<div class="chatMessageInLine">Sending logs...</div>'
+						'afterhtml' : createBotAction("Blah")//'<div class="chatMessageInLine">Sending logs...</div>'
 					});
 				} else if (data.v == 2) {
 					socket.emit('checkFridgeLogDataSuccess', {
 						'msg' : 'Bot: Try restart again',
-						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
+						'afterhtml' : createBotAction("Blah")
 					});
 				} else if (data.v == 3) {
 					socket.emit('checkFridgeLogDataSuccess', {
 						'msg' : 'Bot: Try restart again',
-						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
+						'afterhtml' : createBotAction("Blah")
 					});
 				} else if (data.v == 4) {
 					socket.emit('checkFridgeLogDataSuccess', {
 						'msg' : 'Bot: Try restart again',
-						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
+						'afterhtml' : createBotAction("Blah")
 					});
 				} else if (data.v == 5) {
 					socket.emit('checkFridgeLogDataSuccess', {
 						'msg' : 'Bot: Try restart again',
-						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
+						'afterhtml' : createBotAction("Blah")
 					});
 				} else if (data.v == 6) {
 					socket.emit('checkFridgeLogDataSuccess', {
 						'msg' : 'Bot: Try restart again',
-						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
+						'afterhtml' : createBotAction("Blah")
 					});
 				} else {
 					socket.emit('checkFridgeLogDataSuccess', {
 						'msg' : 'Bot: I\'ll connect you to a help person. Click <a target="_blank" href="/logs/fridge.log">here</a> for the log file.',
-						'afterhtml' : '<div class="botAction"><div>blah</div><div><div><img src="imgs/check.png"/></div><div><img src="imgs/error.png"/></div></div></div>'
+						'afterhtml' : createBotAction("Blah")
 					});
 				}
 			});
@@ -256,9 +263,9 @@ io.on('connection', function(socket){
 				throw err;
 			}
 			var userFridgeLog = logdata.toString();
-			sendLogToZues("fridge_log", [JSON.parse(userFridgeLog)], function(data) {
+			//sendLogToZues("fridge_log", [JSON.parse(userFridgeLog)], function(data) {
 				socket.emit('actionWorkedSuccess', {});
-			});
+			//});
 		});
 	});
 	
