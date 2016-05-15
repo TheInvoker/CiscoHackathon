@@ -20,7 +20,7 @@ header {
 }
 
 .logo h1 {
-	color:#2a00ff;
+	color:#FF4EA0;
 	font-size:30px;
 	margin:0;
 	padding:20px 0;
@@ -29,7 +29,7 @@ header {
 .hero {
 	background: #f3f3f3;
 	width:100%;
-	max-height: 25vh;
+	max-height: 24vh;
 	display:flex;
 	align-items:center;
 }
@@ -68,18 +68,18 @@ header {
 	padding-top:6px;
 	color:#fff;
 	border-radius:50%;
-	background:#ff0060;
+	background:#FF4EA0;
 	display:inline-block;
 }
 
 .icon img {
-	max-height:25vh;
+	max-height:24vh;
 }
 
 #chatbox {
 	background:#eeeeee;
 	overflow-y:scroll;
-	max-height:60vh;
+	max-height:61vh;
 }
 
 #chatbox .leftSide {
@@ -111,8 +111,8 @@ header {
 
 #chatbox .leftSide > div > div > div:nth-child(1), #chatbox .rightSide > div > div > div:nth-child(1) {
 	font-weight:500;
-	font-size:16px;
-	color:#2a00ff;
+	font-size:18px;
+	color:#FF4EA0;
 	margin-bottom:10px;
 }
 
@@ -155,3 +155,35 @@ textarea:focus,
 button:focus {
     outline: none;
 }
+
+.botAction {
+	clear:both;
+	margin:0 auto;
+	border:1px solid #14b9bb;
+	max-width:60%;
+}
+
+.botAction > div {
+	display:inline-block;
+	width:70%;
+	vertical-align: middle;
+	padding-left:10px;
+	font-size:20px;
+	color:#14b9bb;
+}
+
+.botAction > div div {
+	display:inline-block;
+}
+
+.botAction > div:nth-child(2) {
+	width:30%;
+}
+
+.botAction > div:nth-child(2) div {
+    width: 50%;
+    text-align: center;
+    border-left:1px solid #14b9bb;
+    padding: 14px 0 8px;
+}
+
