@@ -9,7 +9,7 @@ var userObj = {
 	}
 };
 
-
+var v = 1;
 
 $(document).ready(function() {
 	
@@ -19,27 +19,30 @@ $(document).ready(function() {
 		var box = $("#chathere").empty();
 		var items = data.items;
 		for(var i=items.length-1; i>=0; i-=1) {
-			
 			var container = $("<div class='commentBox'/>");
 			container.append("<div><img src='" + userObj[items[i].personEmail].icon_url + "'/>" + userObj[items[i].personEmail].DisplayName + "</div>");
 			container.append("<div>" + items[i].text + "</div>");
 			box.append(container);
 		}
 	});
-	
-	socket.on('setChatMessagesSuccess', function(data){
-		socket.emit('getChatMessages');
-	});
-
-	socket.on('checkFridgeLogDataSuccess', function(data){
+	socket.on('checkFridgeLogDataSuccess', function(data) {
 		socket.emit('setChatMessages', {
-			'message' : data
+			'message' : data,
+			'bot' : true
 		});
 	});
-	
-	socket.emit('checkFridgeLogData', {
-		'v' : 1
+	socket.on('setChatMessagesSuccess', function(data) {
+		if (data.status == 'ok') {
+			socket.emit('checkFridgeLogData', {
+				'v' : v
+			});
+			v += 1;
+		}
 	});
+
+
+	
+
 	
 	socket.emit('getChatMessages');
 	$("#refresh").click(function() {
@@ -51,7 +54,8 @@ $(document).ready(function() {
 		var msg = $("#msgField").val();
 		$("#msgField").val("");
 		socket.emit('setChatMessages', {
-			'message' : msg
+			'message' : msg,
+			'bot' : false
 		});
 	});
 });
