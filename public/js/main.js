@@ -33,6 +33,8 @@ $(document).ready(function() {
 			box.append(container);
 		}
 		box.append(data.afterhtml);
+		
+		$('#chatbox').scrollTop($('#chatbox')[0].scrollHeight);
 	});
 	socket.on('checkFridgeLogDataSuccess', function(data) {
 		socket.emit('setChatMessages', {
