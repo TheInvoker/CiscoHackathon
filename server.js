@@ -179,10 +179,13 @@ io.on('connection', function(socket){
 		console.log('a user left');
 	});
 	
-	socket.on('getChatMessages', function(data) {
+	socket.on('getChatMessages', function(cdata) {
 		getRoom("Jason", "direct", function(item) {
 			readMessages(item, function(data) {
-				socket.emit('getChatMessagesSuccess', JSON.parse(data));
+				socket.emit('getChatMessagesSuccess', {
+					'data' : JSON.parse(data),
+					'afterhtml' : cdata.afterhtml
+				});
 			});
 		});
 	});
@@ -190,11 +193,11 @@ io.on('connection', function(socket){
 	socket.on('setChatMessages', function(data) {
 		getRoom("Jason", "direct", function(item) {
 			writeMessage(item, data.message, function(writedata) {
-				if (!data.bot) {
-					socket.emit('setChatMessagesSuccess', {
-						'status' : 'ok'
-					});
-				}
+				socket.emit('setChatMessagesSuccess', {
+					'status' : 'ok',
+					'bot' : data.bot,
+					'afterhtml' : data.afterhtml
+				});
 			});
 		});
 	});
@@ -208,19 +211,40 @@ io.on('connection', function(socket){
 			
 			readLogFromZues("fridge_log", function(fridgedata) {
 				if (data.v == 1) {
-					socket.emit('checkFridgeLogDataSuccess', 'Hello, what can I help you with?');
+					socket.emit('checkFridgeLogDataSuccess', {
+						'msg' : 'Hello, what can I help you with?',
+						'afterhtml' : ''
+					});
 				} else if (data.v == 2) {
-					socket.emit('checkFridgeLogDataSuccess', 'Try restart again');
+					socket.emit('checkFridgeLogDataSuccess', {
+						'msg' : 'Try restart again',
+						'afterhtml' : '<div>blah<div><img src=""/></div><div><img src=""/></div></div>'
+					});
 				} else if (data.v == 3) {
-					socket.emit('checkFridgeLogDataSuccess', 'Try restart again');
+					socket.emit('checkFridgeLogDataSuccess', {
+						'msg' : 'Try restart again',
+						'afterhtml' : '<div>blah<div><img src=""/></div><div><img src=""/></div></div>'
+					});
 				} else if (data.v == 4) {
-					socket.emit('checkFridgeLogDataSuccess', 'Try restart again');
+					socket.emit('checkFridgeLogDataSuccess', {
+						'msg' : 'Try restart again',
+						'afterhtml' : '<div>blah<div><img src=""/></div><div><img src=""/></div></div>'
+					});
 				} else if (data.v == 5) {
-					socket.emit('checkFridgeLogDataSuccess', 'Try restart again');
+					socket.emit('checkFridgeLogDataSuccess', {
+						'msg' : 'Try restart again',
+						'afterhtml' : '<div>blah<div><img src=""/></div><div><img src=""/></div></div>'
+					});
 				} else if (data.v == 6) {
-					socket.emit('checkFridgeLogDataSuccess', 'Try restart again');
+					socket.emit('checkFridgeLogDataSuccess', {
+						'msg' : 'Try restart again',
+						'afterhtml' : '<div>blah<div><img src=""/></div><div><img src=""/></div></div>'
+					});
 				} else {
-					socket.emit('checkFridgeLogDataSuccess', 'Try restart again');
+					socket.emit('checkFridgeLogDataSuccess', {
+						'msg' : 'Try restart again',
+						'afterhtml' : '<div>blah<div><img src=""/></div><div><img src=""/></div></div>'
+					});
 				}
 			});
 		});
