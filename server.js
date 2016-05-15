@@ -7,7 +7,7 @@ var request = require('request');
 var socket = require('socket.io');
 
 
-var ZUES_TOKEN = "8fea82fd";
+var ZUES_TOKEN = "6d23d608";
 var SPARK_PERSONAL_ACCESS_TOKEN = 'YjM2ZmYwY2QtYzBmZS00ZGUxLTlkMWItODc3MzliODI3NmE1OGNjYjA1OGQtYTBj';
 
 function writeCiscoData(str, cb) {
@@ -161,6 +161,14 @@ sendLogToZues("SSSSSSS", [{"test":"value1"}], function(data) {
 */
 
 
+
+
+
+
+
+
+
+
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
@@ -220,7 +228,7 @@ io.on('connection', function(socket){
 				if (data.v == 1) {
 					socket.emit('checkFridgeLogDataSuccess', {
 						'msg' : 'Bot: Hello, what can I help you with?',
-						'afterhtml' : createBotAction("Blah")//'<div class="chatMessageInLine">Sending logs...</div>'
+						'afterhtml' : '<div class="chatMessageInLine">Sending logs...</div>'
 					});
 				} else if (data.v == 2) {
 					socket.emit('checkFridgeLogDataSuccess', {
