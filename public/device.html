@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/jquery-2.2.3.min.js"></script>
+		<script src="js/socket.io-1.4.5.js"></script>
+		<script src="js/main.js"></script>
+
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<title>Help Hub</title>
+	</head>
+	<body>
+
+		<header>
+			<div class="container">
+				<div class="logo">
+					<a href="index.html"><h1>Help Hub</h1></a>
+				</div>
+			</div>
+		</header>
+		
+		<div class="hero">
+			<div class="container">	
+				<div class="icon">
+					<img style="vertical-align:middle" src="imgs/fridge.png">
+					<div style="vertical-align:middle" class="details">
+						<div class="col-1">
+							<h1>Samsung Smart Fridge</h1>
+							<span>Version: 1.0.2</span>
+							<span>Issues opened: 1</span>
+							<span>Logs Retrieved: 3</span>
+						</div>
+
+						<div class="col-2">
+							<h2>2</h2>
+							<span>1. Potential temperature sensor usage warning</span>
+							<span>2. Sensor calibration required</span>
+						</div>
+
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+
+		
+
+		<div id="chatbox">
+			<button id="refresh">Refresh</button>
+			<div id="chathere" class="container">
+
+			</div>
+		</div>
+		
+		<div class="chatsubmit">
+			<div class="container">
+				<input id="msgField" type="text"/><button id="submit">Send</button>
+			</div>
+		</div>
+
+	</body>
+</html>
