@@ -1,7 +1,11 @@
+var express = require('express');
+var app = express();
 var https = require('https');
 var http = require('http');
 var fs = require('fs');
 var request = require('request');
+var socket = require('socket.io');
+
 
 var ZUES_TOKEN = "8fea82fd";
 var SPARK_PERSONAL_ACCESS_TOKEN = 'YjM2ZmYwY2QtYzBmZS00ZGUxLTlkMWItODc3MzliODI3NmE1OGNjYjA1OGQtYTBj';
@@ -17,9 +21,6 @@ function writeJSON(file, json, cb) {
 		cb();
 	}); 
 }
-
-
-
 
 function readLogFromZues(log_name, cb) {
 	var options = { method: 'GET',
@@ -58,10 +59,6 @@ function sendLogToZues(logName, data, cb) {
 		cb(body);
 	});
 }
-
-
-
-
 function getRoom(titleFilter, typeFilter, cb) {
 	var post_req = https.request({
 		host: 'api.ciscospark.com',
@@ -105,7 +102,7 @@ function writeMessage(room, msg, cb) {
 			body += chunk;
 		});
 		res.on('end', function() {
-			//writeCiscoData(body, function() {});
+			writeCiscoData(body, function() {});
 			cb(body);
 		});
 	});
@@ -143,21 +140,15 @@ function readMessages(room, cb) {
 	post_req.end();
 }
 
-
-
 getRoom("Jason", "direct", function(item) {
 	//writeMessage(item, "XYZ", function(data) {
+	//	console.log(data);
 	//});
-	readMessages(item, function(data) {
-		console.log(data);
-	});
+	//readMessages(item, function(data) {
+	//	console.log(data);
+	//});
 });
 /*
-
-
-
-
-
 readLogFromZues("TEST123", function(data) {
 	console.log(data);
 });
