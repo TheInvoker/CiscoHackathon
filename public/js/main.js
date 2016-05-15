@@ -16,7 +16,7 @@ $(document).ready(function() {
 	var socket = io();
 	
 	socket.on('getChatMessagesSuccess', function(data){
-		var box = $("#chatbox").empty();
+		var box = $("#chathere").empty();
 		var items = data.items;
 		for(var i=items.length-1; i>=0; i-=1) {
 			
@@ -31,7 +31,16 @@ $(document).ready(function() {
 		socket.emit('getChatMessages');
 	});
 
-
+	socket.on('checkFridgeLogDataSuccess', function(data){
+		socket.emit('setChatMessages', {
+			'message' : data
+		});
+	});
+	
+	socket.emit('checkFridgeLogData', {
+		'v' : 1
+	});
+	
 	socket.emit('getChatMessages');
 	$("#refresh").click(function() {
 		socket.emit('getChatMessages');
