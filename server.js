@@ -102,7 +102,7 @@ function writeMessage(room, msg, cb) {
 			body += chunk;
 		});
 		res.on('end', function() {
-			writeCiscoData(body, function() {});
+			//writeCiscoData(body, function() {});
 			cb(body);
 		});
 	});
@@ -140,14 +140,7 @@ function readMessages(room, cb) {
 	post_req.end();
 }
 
-getRoom("Jason", "direct", function(item) {
-	//writeMessage(item, "XYZ", function(data) {
-	//	console.log(data);
-	//});
-	//readMessages(item, function(data) {
-	//	console.log(data);
-	//});
-});
+
 /*
 readLogFromZues("TEST123", function(data) {
 	console.log(data);
@@ -156,3 +149,46 @@ sendLogToZues("SSSSSSS", [{"test":"value1"}], function(data) {
 	console.log(data);
 });
 */
+
+
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', function (req, res) {
+	var dest = 'index.html';
+	res.sendFile(dest, { root: __dirname });
+});
+
+var server = app.listen(3000, function () {
+	var host = server.address().address;
+	var port = server.address().port;
+
+	console.log('HelpHub started at http://%s:%s', host, port);
+});
+
+var io = require('socket.io').listen(server);
+
+io.on('connection', function(socket){
+	console.log('a user connected');
+
+	socket.on('disconnect', function() {
+		console.log('a user left');
+	});
+	
+	socket.on('getChatMessages', function(data) {
+		getRoom("Jason", "direct", function(item) {
+			readMessages(item, function(data) {
+				socket.emit('getChatMessagesSuccess', JSON.parse(data));
+			});
+		});
+	});
+	
+	socket.on('setChatMessages', function(data) {
+		getRoom("Jason", "direct", function(item) {
+			writeMessage(item, data.message, function(data) {
+				socket.emit('setChatMessagesSuccess', {
+					'status' : 'ok'
+				});
+			});
+		});
+	});
+});
