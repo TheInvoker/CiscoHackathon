@@ -65,6 +65,7 @@ $(document).ready(function() {
 	});
 	socket.on('actionWorkedSuccess', function(data) {
 		alert("Thank you for letting us know this was your fix!");
+		socket.emit('end', {});
 	});
 	socket.on('actionNotWorkedSuccess', function(data) {
 		

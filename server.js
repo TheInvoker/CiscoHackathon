@@ -293,7 +293,7 @@ io.on('connection', function(socket){
 					});
 				} else {
 					socket.emit('checkFridgeLogDataSuccess', {
-						'msg' : 'Bot: I\'ll connect you to a help person. Click <a target="_blank" href="/logs/fridge.log">here</a> for the log file.',
+						'msg' : 'Bot: Sorry, I couldn\'t help, I\'ll connect you to a help person... Click <a target="_blank" href="/logs/fridge.log">here</a> for the log file for your IoT fridge.',
 						'afterhtml' : ''
 					});
 				}
@@ -307,14 +307,18 @@ io.on('connection', function(socket){
 				throw err;
 			}
 			var userFridgeLog = logdata.toString();
-			//sendLogToZues("fridge_log", [JSON.parse(userFridgeLog)], function(data) {
+			sendLogToZues("fridge_log", [JSON.parse(userFridgeLog)], function(data) {
 				socket.emit('actionWorkedSuccess', {});
-				socket.disconnect(0);
-			//});
+				
+			});
 		});
 	});
 	
 	socket.on('actionNotWorked', function(data) {
 		socket.emit('actionNotWorkedSuccess', {});
+	});
+	
+	socket.on('end', function(data) {
+		socket.disconnect(0);
 	});
 });
