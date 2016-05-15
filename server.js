@@ -118,7 +118,7 @@ function writeMessage(room, msg, cb) {
 function readMessages(room, cb) {
 	var post_req = https.request({
 		host: 'api.ciscospark.com',
-		path: '/v1/messages?roomId=' + room.id + '&max=30',
+		path: '/v1/messages?roomId=' + room.id + '&max=100',
 		method: 'GET',
 		headers: {
 			'Authorization': 'Bearer ' + SPARK_PERSONAL_ACCESS_TOKEN,
