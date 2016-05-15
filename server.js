@@ -213,7 +213,7 @@ io.on('connection', function(socket){
 				if (data.v == 1) {
 					socket.emit('checkFridgeLogDataSuccess', {
 						'msg' : 'Bot: Hello, what can I help you with?',
-						'afterhtml' : ''
+						'afterhtml' : '<div class="chatMessageInLine">Sending logs...</div>'
 					});
 				} else if (data.v == 2) {
 					socket.emit('checkFridgeLogDataSuccess', {
@@ -248,5 +248,11 @@ io.on('connection', function(socket){
 				}
 			});
 		});
+	});
+	
+	socket.on('actionWorked', function(data) {
+	});
+	
+	socket.on('actionNotWorked', function(data) {
 	});
 });
