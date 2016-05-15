@@ -1,7 +1,6 @@
 var https = require('https');
 var http = require('http');
 var fs = require('fs');
-var qs = require("querystring");
 var request = require('request');
 
 var ZUES_TOKEN = "8fea82fd";
@@ -18,6 +17,9 @@ function writeJSON(file, json, cb) {
 		cb();
 	}); 
 }
+
+
+
 
 function readLogFromZues(log_name, cb) {
 	var options = { method: 'GET',
@@ -56,6 +58,10 @@ function sendLogToZues(logName, data, cb) {
 		cb(body);
 	});
 }
+
+
+
+
 function getRoom(titleFilter, typeFilter, cb) {
 	var post_req = https.request({
 		host: 'api.ciscospark.com',
@@ -113,17 +119,15 @@ getRoom("Jason", "direct", function(item) {
 	writeMessage(item, "XYZ", function(data) {
 	});
 });
-*/
+
+
+
 
 
 readLogFromZues("TEST123", function(data) {
 	console.log(data);
 });
-
-
-/*
 sendLogToZues("SSSSSSS", [{"test":"value1"}], function(data) {
 	console.log(data);
 });
 */
-
