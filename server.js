@@ -19,41 +19,34 @@ function writeJSON(file, json, cb) {
 	}); 
 }
 
-function readLogFromZues(cb) {
-	var post_req = http.request({
-		host: 'api.site1.ciscozeus.io',
-		path: '/logs/' + ZUES_TOKEN + '/',
-		//port: 80,
-		method: 'GET',
-		headers: {
-			'Content-type' : 'application/x-www-form-urlencoded'
+function readLogFromZues(log_name, cb) {
+	var options = { method: 'GET',
+		url: 'http://api.site1.ciscozeus.io/logs/' + ZUES_TOKEN + '/',
+		qs: { 
+			log_name: log_name
+		},
+		headers: { 
+			'postman-token': '55e061d8-4341-ef57-a305-cf9e505e220b',
+			'cache-control': 'no-cache' 
 		}
-	}, function(res) {
-		console.log(1);
-		res.on('data', function (chunk) {
-			console.log(2);
-			cb(chunk);
-		});
+	};
+	request(options, function (error, response, body) {
+		if (error) {
+			throw new Error(error);
+		}
+		cb(body);
 	});
-	post_req.write(JSON.stringify({
-		"attribute_name" : 'TEST'
-	}));
-	post_req.on('error', function(e) {
-		console.log(3);
-		console.error(e);
-	});
-	post_req.end();
 }
-function sendLogToZues(logName, cb) {
+function sendLogToZues(logName, data, cb) {
 	var options = { 
 		method: 'POST',
-		url: 'http://api.site1.ciscozeus.io/logs/'+ZUES_TOKEN+'/'+logName+'/',
+		url: 'http://api.site1.ciscozeus.io/logs/' + ZUES_TOKEN + '/' + logName + '/',
 		headers: { 
 			'content-type': 'application/x-www-form-urlencoded',
 			'cache-control': 'no-cache' 
 		},
 		form: { 
-			logs: '[{"test":"value1"}]' 
+			logs: JSON.stringify(data)
 		} 
 	};
 	request(options, function (error, response, body) {
@@ -122,17 +115,15 @@ getRoom("Jason", "direct", function(item) {
 });
 */
 
+
+readLogFromZues("TEST123", function(data) {
+	console.log(data);
+});
+
+
 /*
-readLogFromZues(function(data) {
+sendLogToZues("SSSSSSS", [{"test":"value1"}], function(data) {
 	console.log(data);
 });
 */
-
-
-
-
-sendLogToZues("TEST123", function(data) {
-	console.log(data);
-});
-
 
